@@ -20,7 +20,7 @@ Add your answers to this markdown file.
 ## 1.
 - Asymptotic analysis ignores constants to focus on how complexity develops as input size grows.  While this is helpful, it can leave a lot of information out of analysis and how we understand time or space complexity.
 - Another reason is that different machines are going to run differently.  Regardless of the performance on a specific machine, factors out of control and not accounted for in this analysis can have an effect on performance on others.
-- Asymptotic analysis also only looks at the impact of input size on complexity.  This can leave out other factors that might contribute to changes in complexity.
+- Asymptotic analysis also only looks at the impact of input size on complexity.  This can leave out other factors that might contribute to changes in complexity.  For example, we ignore lower order factors when lookign at asymptotic complexity.
 
 ## 2.
 Assuming that the binary search tree is balanced, the time complexity should be O(log(n)).  If, however, the tree is skewed, the time complexity could be up to O(n).
@@ -55,6 +55,6 @@ k * 10,000 = seconds</br>
 As shown, the time taken should be 50 seconds.
 
 ## 3.
-- There may be factors other than input size that are contributing to the time taken.  This would be outside of the view of asymptotic complexity and thus would not be accounted for in this analysis.
-- It could also be that the constant accounted for through multiplication in the above calculations actually scales differently based on input size.  For example, it may be a sum that increases at a different rate than is assumed in the calculations used.
-- Memory use may also be a factor in this example.  It could be that the lower size uses less space in memory and the higher input size's increase in memory usage slows down the runtime in ways that we can't account for here.
+- The machine this program is running on might have physical limitations in memory that might slow down runtime as input size increases by this degree.  If the machine's RAM is overloaded by the program, performance would decrease and runtime would increase as a result.  This sort of factor can't be accounted for within the scope of asymptotic analysis, so it's possible this could lead to the misleading calculations.
+- The factor used in calculations above in calculations may not be a constant at all but rather a scaling factor of lower order that isn't acknowledged in the final statement of membership for the time complexity.  As is the case in the divide and conquer sum project, it could be a scaling sum that has lower impact on overall time complexity but is still quite noticable in practical application.
+- Similarly to the memory limitations, there could be a CPU usage limit that is causing problems here.  If the increase in input size is causing the machine to attempt to do more than the CPU can do at a given time, performance would decrease and runtime would increase.
